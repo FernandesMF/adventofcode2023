@@ -1,7 +1,7 @@
 import string
 
 
-DATA_PATH = "challenges/day1-1-input.txt"
+DATA_PATH = "challenges/day1-input.txt"
 
 
 def load_data(path: str) -> list[str]:
