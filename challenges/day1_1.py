@@ -1,6 +1,5 @@
 import string
 
-
 DATA_PATH = "challenges/day1-input.txt"
 
 

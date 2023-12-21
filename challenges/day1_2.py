@@ -1,10 +1,18 @@
-from re import search
 import string
-
+from re import search
 
 DATA_PATH = "challenges/day1-input.txt"
 SPELLED_OUT_DIGITS = {
-   "one":1, "two":2, "three":3, "four":4, "five":5, "six":6, "seven":7, "eight":8, "nine":9, "zero":0
+    "one": 1,
+    "two": 2,
+    "three": 3,
+    "four": 4,
+    "five": 5,
+    "six": 6,
+    "seven": 7,
+    "eight": 8,
+    "nine": 9,
+    "zero": 0,
 }
 
 
@@ -16,11 +24,15 @@ def load_data(path: str) -> list[str]:
 
 
 def substitute_spelled_out_digits(ss: str) -> str:
-    match_str = f"({"|".join(SPELLED_OUT_DIGITS.keys())})"
+    match_str = f"({" | ".join(SPELLED_OUT_DIGITS.keys())})"
     index = 0
     match = search(match_str, ss[index:])
     while match:
-        ss = ss[0:index+match.span()[0]] + str(SPELLED_OUT_DIGITS[match.group()]) + ss[index+match.span()[0]:]
+        ss = (
+            ss[0 : index + match.span()[0]]
+            + str(SPELLED_OUT_DIGITS[match.group()])
+            + ss[index + match.span()[0] :]
+        )
         index += match.span()[0] + 2
         match = search(match_str, ss[index:])
     return ss
@@ -38,8 +50,3 @@ if __name__ == "__main__":
     data2 = [substitute_spelled_out_digits(x) for x in data]
     numeric_values = [find_first_and_last_digit(x) for x in data2]
     print(sum(numeric_values))
-
-    #DEBUG
-    # import pprint
-    # big_data = zip(data, data2, numeric_values)
-    # pprint.pprint(list(big_data))
