@@ -24,7 +24,7 @@ def load_data(path: str) -> list[str]:
 
 
 def substitute_spelled_out_digits(ss: str) -> str:
-    match_str = f"({" | ".join(SPELLED_OUT_DIGITS.keys())})"
+    match_str = f"({'|'.join(SPELLED_OUT_DIGITS.keys())})"
     index = 0
     match = search(match_str, ss[index:])
     while match:
