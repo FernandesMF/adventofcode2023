@@ -7,6 +7,7 @@ DATA_PATH = "challenges/day3-input.txt"
 def load_schematics() -> list[str]:
     with open(DATA_PATH, "r") as f:
         data = f.readlines()
+    data = list(map(str.strip, data))
     return data
 
 
