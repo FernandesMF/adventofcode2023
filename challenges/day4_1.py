@@ -17,9 +17,9 @@ def organize_card_data(raw_data: list[str]) -> list[tuple[list[int], list[int]]]
     return card_data
 
 
-def calculate_card_points(winning_nums: list[int], elf_nums:list[int]) -> int:
+def calculate_card_points(winning_nums: list[int], elf_nums: list[int]) -> int:
     num_matches = sum([x in winning_nums for x in elf_nums])
-    return 2**(num_matches-1) if num_matches>0 else 0
+    return 2 ** (num_matches - 1) if num_matches > 0 else 0
 
 
 def main():
