@@ -31,9 +31,7 @@ def collect_number(schema_line: str, line_pos: int) -> tuple[int, int, int]:
 def is_gear(schema: list[str], line_num: int, line_pos: int) -> tuple[bool, int | None]:
     "Checks if an '*' is a gear, and if so returns its power as well"
 
-    assert (
-        schema[line_num][line_pos] == "*"
-    ), "'is_gear' is being called for a non-gear character"
+    assert schema[line_num][line_pos] == "*", "'is_gear' is being called for a non-gear character"
 
     line_len = len(schema[0])
     schema_len = len(schema)

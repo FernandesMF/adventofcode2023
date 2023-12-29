@@ -39,9 +39,7 @@ def substitute_spelled_out_digits(ss: str) -> str:
 
 
 def find_first_and_last_digit(s: str) -> int:
-    numeric_chars = [
-        x for x in s if (x in string.digits or x in SPELLED_OUT_DIGITS.values())
-    ]
+    numeric_chars = [x for x in s if (x in string.digits or x in SPELLED_OUT_DIGITS.values())]
     return int(numeric_chars[0] + numeric_chars[-1])
 
 

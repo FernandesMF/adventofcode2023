@@ -22,20 +22,12 @@ def parse_data(data: list[str]) -> dict[int : list[tuple[int, int, int]]]:
         round_info = re.split(";", line[8:])
         parsed_round_info = []
         for r in round_info:
-            reds = (
-                int(re.search(r"(\d+) red", r).groups()[0])
-                if re.search(r"(\d+) red", r)
-                else 0
-            )
+            reds = int(re.search(r"(\d+) red", r).groups()[0]) if re.search(r"(\d+) red", r) else 0
             greens = (
-                int(re.search(r"(\d+) green", r).groups()[0])
-                if re.search(r"(\d+) green", r)
-                else 0
+                int(re.search(r"(\d+) green", r).groups()[0]) if re.search(r"(\d+) green", r) else 0
             )
             blues = (
-                int(re.search(r"(\d+) blue", r).groups()[0])
-                if re.search(r"(\d+) blue", r)
-                else 0
+                int(re.search(r"(\d+) blue", r).groups()[0]) if re.search(r"(\d+) blue", r) else 0
             )
             parsed_round_info.append((reds, greens, blues))
         parsed_data.update({game_id: parsed_round_info})
